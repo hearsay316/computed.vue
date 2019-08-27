@@ -32,3 +32,16 @@ npm run test:unit
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+echo "# computed.vue" >> README.md
+git init
+
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/hearsay316/computed.vue.git
+git push -u origin master
+
+
+git remote add origin https://github.com/hearsay316/computed.vue.git
+git push -u origin master
+"# computed.vue" 
