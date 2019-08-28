@@ -1,12 +1,28 @@
 <template>
-  <div class="cascader">
-
+  <div >
+    <Cascader v-if="isShow"></Cascader>
+    <button @click="appuser">按钮</button>
   </div>
 </template>
 <script>
+import Cascader from './components/cascader.vue';
+
 export default {
+  props: {
+    options: {
+      type: Array,
+      default: () => [],
+    },
+  },
+  methods: {
+    appuser() {
+      this.isShow = !this.isShow;
+      console.log(222);
+    },
+  },
   data() {
     return {
+      isShow: true,
       options: [
         {
           label: '肉类',
@@ -64,6 +80,9 @@ export default {
         },
       ],
     };
+  },
+  components: {
+    Cascader,
   },
 };
 </script>
