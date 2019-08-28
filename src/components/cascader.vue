@@ -3,8 +3,8 @@
     <div class="title" @click="toggle">
 
     </div>
-    <div class="content" v-if="isVisble">
-      现实的内容
+    <div  v-if="isVisible">
+      <CascaderItem :options="options"></CascaderItem>
     </div>
   </div>
 </template>
@@ -19,23 +19,34 @@
  */
 
 import util from '../directives/clickOutside';
+import CascaderItem from './CascaderItem.vue';
 
-console.log(util);
 export default {
+  components: {
+    CascaderItem,
+  },
   directives: {
     clickOutside: util.clickOutside,
   },
+  props: {
+    options: {
+      type: Array,
+      default: () => [],
+    },
+  },
+
   methods: {
     close() {
-      this.isVisble = false;
+      this.isVisible = false;
     },
     toggle() {
-      this.isVisble = !this.isVisble;
+      this.isVisible = !this.isVisible;
     },
   },
   data() {
     return {
-      isVisble: false,
+      isVisible: false,
+      currentSeletecd: null,
     };
   },
 };

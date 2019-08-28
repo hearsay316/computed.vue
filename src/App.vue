@@ -1,19 +1,12 @@
 <template>
   <div >
-    <Cascader v-if="isShow"></Cascader>
-    <button @click="appuser">按钮</button>
+    <Cascader v-if="isShow" :options="options"></Cascader>
   </div>
 </template>
 <script>
 import Cascader from './components/cascader.vue';
 
 export default {
-  props: {
-    options: {
-      type: Array,
-      default: () => [],
-    },
-  },
   methods: {
     appuser() {
       this.isShow = !this.isShow;
