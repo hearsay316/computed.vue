@@ -1,81 +1,57 @@
 <template>
-  <div >
-    <Cascader v-if="isShow" :options="options"></Cascader>
+  <div id="app">
+    <img src="./assets/logo.png" />
+    <div>
+      <p>
+        If Element is successfully added to this project, you'll see an
+        <code v-text="'<el-button>'"></code>
+        below
+      </p>
+      <el-button>el-button</el-button>
+    </div>
+    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <Input />
+    <div @click="HandleClick(`desc | user`)" :data="desc | user">{{ desc | user }}</div>
   </div>
 </template>
+
 <script>
-import Cascader from './components/cascader.vue';
+import HelloWorld from "./components/HelloWorld.vue";
+
+import { Input } from "element-ui";
 
 export default {
-  methods: {
-    appuser() {
-      this.isShow = !this.isShow;
-      console.log(222);
-    },
-  },
+  name: "app",
   data() {
     return {
-      isShow: true,
-      options: [
-        {
-          label: '肉类',
-          children: [
-            {
-              label: '猪肉',
-              children: [
-                {
-                  label: '五花肉',
-                },
-                {
-                  label: '里脊肉',
-                },
-              ],
-            },
-            {
-              label: '鸡肉',
-              children: [
-                {
-                  label: '鸡腿',
-                },
-                {
-                  label: '鸡翅',
-                },
-              ],
-            },
-          ],
-        },
-        {
-          label: '蔬菜',
-          children: [
-            {
-              label: '叶菜类',
-              children: [
-                {
-                  label: '大白菜',
-                },
-                {
-                  label: '小白菜',
-                },
-              ],
-            },
-            {
-              label: '根茎类',
-              children: [
-                {
-                  label: '萝卜',
-                },
-                {
-                  label: '土豆',
-                },
-              ],
-            },
-          ],
-        },
-      ],
+      desc: "这个是"
     };
   },
-  components: {
-    Cascader,
+  methods: {
+    HandleClick(value) {
+      let app = value;
+      return app;
+    }
   },
+  components: {
+    HelloWorld,
+    Input
+  },
+  filters: {
+    user(value) {
+      return value;
+    }
+  }
 };
 </script>
+
+<style>
+#app {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>

@@ -1,9 +1,7 @@
 <template>
   <div class="cascader" v-click-outside="close">
-    <div class="title" @click="toggle">
-
-    </div>
-    <div  v-if="isVisible">
+    <div class="title" @click="toggle"></div>
+    <div v-if="isVisible">
       <CascaderItem :options="options"></CascaderItem>
     </div>
   </div>
@@ -18,21 +16,21 @@
  * click-outside
  */
 
-import util from '../directives/clickOutside';
-import CascaderItem from './CascaderItem.vue';
+import util from "../directives/clickOutside";
+import CascaderItem from "./CascaderItem.vue";
 
 export default {
   components: {
-    CascaderItem,
+    CascaderItem
   },
   directives: {
-    clickOutside: util.clickOutside,
+    clickOutside: util.clickOutside
   },
   props: {
     options: {
       type: Array,
-      default: () => [],
-    },
+      default: () => []
+    }
   },
 
   methods: {
@@ -41,21 +39,21 @@ export default {
     },
     toggle() {
       this.isVisible = !this.isVisible;
-    },
+    }
   },
   data() {
     return {
       isVisible: false,
-      currentSeletecd: null,
+      currentSeletecd: null
     };
-  },
+  }
 };
 </script>
 <style lang="stylus">
-  .cascader
-    display inline-block
-  .title
-    width:150px
-    height:30px
-    border:1px solid red
+.cascader
+  display inline-block
+.title
+  width:150px
+  height:30px
+  border:1px solid red
 </style>

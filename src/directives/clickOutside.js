@@ -8,12 +8,10 @@ const lister = (el, bindings, vnode, e) => {
 export default {
   clickOutside: {
     inserted(el, bindings, vnode) {
-      console.log(el, bindings, vnode);
-      document.addEventListener('click', lister.bind(this, el, bindings, vnode));
+      document.addEventListener("click", lister.bind(this, el, bindings, vnode));
     },
     unbind(el, bindings, vnode) {
-      document.removeEventListener('click', lister.bind(this, el, bindings, vnode));
-      console.log(2222);
-    },
-  },
+      document.removeEventListener("click", lister.bind(this, el, bindings, vnode));
+    }
+  }
 };
